@@ -73,7 +73,12 @@ extension ContactsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) // Делаем ячейку переиспользуемой
-        cell.textLabel?.text = "\(data[indexPath.row].name) \(data[indexPath.row].lastName)"
+        
+        // создаем контент для ячейки (стараемся по крайней мере)
+        var content = cell.defaultContentConfiguration()
+        content.text = "\(data[indexPath.row].name) \(data[indexPath.row].lastName)"
+        cell.contentConfiguration = content
+        
         return cell
     }
 }

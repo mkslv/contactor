@@ -41,12 +41,18 @@ final class DetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) // Делаем ячейку переиспользуемой
+        // Делаем ячейку переиспользуемой
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
+        // Create a content
+        var content = cell.defaultContentConfiguration()
         if indexPath.row == 1 {
-            cell.textLabel?.text = "Phone: \(data.phone)"
+            content.text = "Phone: \(data.phone)"
         } else {
-            cell.textLabel?.text = "Email: \(data.email)"
+            content.text = "Email: \(data.email)"
         }
+        cell.contentConfiguration = content
+        
         return cell
     }
     

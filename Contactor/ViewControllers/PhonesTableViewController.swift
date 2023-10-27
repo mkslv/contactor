@@ -46,13 +46,17 @@ final class PhonesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
+        // Create a content to our cell
+        var content = cell.defaultContentConfiguration()
         if indexPath.row == 0 {
-            cell.imageView?.image = UIImage(systemName: "phone")
-            cell.textLabel?.text = data[indexPath.section].phone
+            content.image = UIImage(systemName: "phone")
+            content.text = data[indexPath.section].phone
         } else {
-            cell.imageView?.image = UIImage(systemName: "envelope")
-            cell.textLabel?.text = data[indexPath.section].email
+            content.image = UIImage(systemName: "envelope")
+            content.text = data[indexPath.section].email
         }
+        cell.contentConfiguration = content
+        
         return cell
     }
 
