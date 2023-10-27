@@ -9,7 +9,7 @@ import Foundation
 
 final class DataStore {
 
-    static let shared = DataStore().getData()
+    static let shared = DataStore()
     var isShuffled = false
     
     private var data: [Person] = []
