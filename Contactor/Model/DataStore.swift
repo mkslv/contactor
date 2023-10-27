@@ -9,11 +9,8 @@ import Foundation
 
 final class DataStore {
 
-    static let shared = DataStore()
-
-    init() {
-        shuffleArrays()
-    }
+    static let shared = DataStore().getData()
+    var isShuffled = false
     
     private var data: [Person] = []
     private var names = ["Harry", "Mason", "Jonatta", "Marcelo", "Loreta", "Sarah", "Johny", "George", "Vladimir", "Innokentiy"]
@@ -39,6 +36,10 @@ final class DataStore {
     }
     
     func getData() -> [Person] {
+        if !isShuffled {
+            shuffleArrays()
+            isShuffled = !isShuffled
+        }
         let minElements = getMinElements(names, lastNames, emails, phones)
         for counter in 0..<minElements {
             data.append(Person(

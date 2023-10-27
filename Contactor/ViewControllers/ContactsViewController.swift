@@ -10,7 +10,7 @@ import UIKit
 final class ContactsViewController: UIViewController {
     // MARK: - Properties
     // Model
-    private var data = DataStore.shared.getData()
+    private var data = DataStore.shared
     
     // Properties
     private let cellIdentifier = "Cell"

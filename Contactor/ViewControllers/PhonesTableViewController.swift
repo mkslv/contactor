@@ -9,7 +9,7 @@ import UIKit
 
 final class PhonesTableViewController: UITableViewController {
 
-    let data = DataStore.shared.getData()
+    let data = DataStore.shared
     
     init() {
         super.init(style: .grouped)
