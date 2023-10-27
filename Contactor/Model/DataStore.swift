@@ -8,9 +8,12 @@
 import Foundation
 
 final class DataStore {
-
+    
     static let shared = DataStore()
-    var isShuffled = false
+    
+    private init() {} // prevent initia;ization of our class because singleton
+    
+    private var isShuffled = false
     
     private var data: [Person] = []
     private var names = ["Harry", "Mason", "Jonatta", "Marcelo", "Loreta", "Sarah", "Johny", "George", "Vladimir", "Innokentiy"]
